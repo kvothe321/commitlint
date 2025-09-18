@@ -1,24 +1,14 @@
-import org.jetbrains.kotlin.gradle.dsl.JvmTarget
-
 plugins {
     `java-gradle-plugin`
+    `kotlin-dsl`
+
     alias(libs.plugins.kotlin.jvm)
     alias(libs.plugins.ktlint)
 }
 
-java {
-    toolchain {
-        languageVersion.set(JavaLanguageVersion.of(11))
-    }
-}
-
 kotlin {
-    jvmToolchain(11)
-}
-
-tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
-    compilerOptions {
-        jvmTarget.set(JvmTarget.JVM_11)
+    jvmToolchain {
+        languageVersion.set(JavaLanguageVersion.of(11))
     }
 }
 
@@ -56,10 +46,9 @@ testing {
 }
 
 gradlePlugin {
-    // Define the plugin
-    val greeting by plugins.creating {
-        id = "com.tlpcraft.plugin.commitlint.greeting"
-        implementationClass = "com.tlpcraft.plugin.commitlint.CommitlintPlugin"
+    val commitLint by plugins.creating {
+        id = "com.tlpcraft.plugin.commitlint"
+        implementationClass = "com.tlpcraft.plugin.commitlint.CommitLintPlugin"
     }
 }
 
