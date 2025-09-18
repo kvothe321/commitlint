@@ -4,8 +4,8 @@
 package com.tlpcraft.plugin.commitlint
 
 import java.io.File
-import kotlin.test.assertTrue
 import kotlin.test.Test
+import kotlin.test.assertTrue
 import org.gradle.testkit.runner.GradleRunner
 import org.junit.jupiter.api.io.TempDir
 
@@ -23,11 +23,13 @@ class CommitlintPluginFunctionalTest {
     @Test fun `can run task`() {
         // Set up the test build
         settingsFile.writeText("")
-        buildFile.writeText("""
+        buildFile.writeText(
+            """
             plugins {
                 id('com.tlpcraft.plugin.commitlint.greeting')
             }
-        """.trimIndent())
+            """.trimIndent()
+        )
 
         // Run the build
         val runner = GradleRunner.create()
