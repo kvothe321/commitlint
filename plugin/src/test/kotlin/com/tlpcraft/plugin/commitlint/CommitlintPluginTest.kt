@@ -3,9 +3,9 @@
  */
 package com.tlpcraft.plugin.commitlint
 
-import org.gradle.testfixtures.ProjectBuilder
 import kotlin.test.Test
 import kotlin.test.assertNotNull
+import org.gradle.testfixtures.ProjectBuilder
 
 /**
  * A simple unit test for the 'com.tlpcraft.plugin.commitlint.greeting' plugin.
